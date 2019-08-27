@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
-import PrivateRouter from '../src/components/Router/Router.js';
 import styled from 'styled-components';
+
+import Login from './components/user/login.js';
+// import Logout from './components/views/Logout';
+import Register from './components/user/register.js';
+import PrivateRouter from '../src/components/Router/Router.js';
+
 
 const Home = () => (
   <div> Hello</div>
@@ -15,7 +21,8 @@ class App extends Component {
       <AppContainer>
         <PageContent>
           <PrivateRouter exact path="/" component={Home} />
-
+          <Route exact path="/login" render={props => <Login {...props} />} />
+          <Route exact path="/register" render={props => <Register {...props} />} />
 
         </PageContent>
       </AppContainer>
